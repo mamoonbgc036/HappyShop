@@ -1,8 +1,7 @@
 <?php
 
-
-include_once("inc/customizer/kirki-installer.php");
-include_once("inc/customizer/customizer-main.php");
+include_once( 'inc/customizer/kirki-installer.php' );
+include_once( 'inc/customizer/customizer-main.php' );
 
 function simpleshop_setup() {
 	
