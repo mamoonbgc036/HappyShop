@@ -1,10 +1,13 @@
  <!--flickr section start-->
+ <?php 
+    if( get_theme_mod( 'flicker_switch_setting' ) ):
+ ?>
  <section class="">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-8">
                     <div class="section-title text-center">
-                        <h2 class="title ">Simple Shop on Flickr</h2>
+                        <h2 class="title "><?php echo get_theme_mod( 'flicker_text_setting' );?></h2>
                     </div>
                 </div>
             </div>
@@ -18,4 +21,5 @@
             <a href="#" style="background-image: url('<?php echo get_template_directory_uri();?>/assets/img/s5.jpg')"></a>
         </div>
     </section>
+<?php endif; ?>
     <!-- flickr section end-->

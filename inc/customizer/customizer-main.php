@@ -1,54 +1,20 @@
 <?php
 
-// define('SIMPLESHOP_CUSTOMIZER_CONFIG_ID','simpleshop_customizer_settings');
-// define('SIMPLESHOP_CUSTOMIZER_PANEL_ID','simpleshop_customizer_panel');
-
-// if(class_exists('Kirki')){
-// 	Kirki::add_config( SIMPLESHOP_CUSTOMIZER_CONFIG_ID, array(
-// 		'capability'    => 'edit_theme_options',
-// 		'option_type'   => 'theme_mod',
-// 	) );
-
-// 	Kirki::add_panel( SIMPLESHOP_CUSTOMIZER_PANEL_ID, array(
-// 		'priority'    => 240,
-// 		'title'       => esc_html__( 'SimpleShop', 'simpleshop' ),
-// 		'description' => esc_html__( 'SimpleShop Settings', 'simpleshop' ),
-// 	) );
-
-// 	Kirki::add_section( 'simpleshop_homepage', array(
-// 		'title'          => esc_html__( 'Homepage Setting', 'kirki' ),
-// 		'panel'          => SIMPLESHOP_CUSTOMIZER_PANEL_ID,
-// 		'priority'       => 260,
-// 		'active_callback' => function(){
-// 			return is_page_template('page-templates/homepage.php');
-// 		}
-// 	) );
-
-// 	Kirki::add_field( SIMPLESHOP_CUSTOMIZER_CONFIG_ID, [
-// 		'type'     => 'text',
-// 		'settings' => 'my_setting',
-// 		'label'    => esc_html__( 'Text Control', 'simpleshop' ),
-// 		'section'  => 'simpleshop_homepage',
-// 		'default'  => esc_html__( 'This is a default value', 'simpleshop' ),
-// 		'priority' => 10,
-// 	] );
-// }
-
 new \Kirki\Panel(
-	'panel_id',
+	'Ecom_panel_id',
 	[
 		'priority'    => 120,
-		'title'       => esc_html__( 'My Panel', 'kirki' ),
+		'title'       => esc_html__( 'Ecom Customizer Panels', 'kirki' ),
 		'description' => esc_html__( 'My Panel Description.', 'kirki' ),
 	]
 );
 
 new \Kirki\Section(
-	'section_id',
+	'Ecom_section_id_one',
 	[
-		'title'       => esc_html__( 'My Section', 'kirki' ),
+		'title'       => esc_html__( 'My Sections', 'kirki' ),
 		'description' => esc_html__( 'My Section Description.', 'kirki' ),
-		'panel'       => 'panel_id',
+		'panel'       => 'Ecom_panel_id',
 		'priority'    => 160,
 		'active_callback'=>function(){
 			return is_front_page();
@@ -56,12 +22,177 @@ new \Kirki\Section(
 	]
 );
 
+// SHOP BY CATEGORY
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'category_switch_setting',
+		'label'       => esc_html__( 'Category Enabler', 'kirki' ),
+		'section'     => 'Ecom_section_id_one',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'kirki' ),
+			'off' => esc_html__( 'Disable', 'kirki' ),
+		],
+	]
+);
+
 new \Kirki\Field\Text(
 	[
-		'settings' => 'text_setting',
-		'label'    => esc_html__( 'Text Control', 'kirki' ),
-		'section'  => 'section_id',
-		'default'  => esc_html__( 'This is a default value', 'kirki' ),
+		'settings' => 'category_text_setting',
+		'label'    => esc_html__( 'Rename Your Category Heading', 'kirki' ),
+		'section'  => 'Ecom_section_id_one',
+		'default'  => esc_html__( 'Shop By Categories', 'kirki' ),
 		'priority' => 10,
+		'active_callback'=>[
+			[
+				'setting'=>'category_switch_setting',
+				'operator'=> '==',
+				'value'=>true,
+			]
+		]
+	]
+);
+
+// NEW ARRIVALS
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'products_switch_setting',
+		'label'       => esc_html__( 'New Arrival Enabler', 'kirki' ),
+		'section'     => 'Ecom_section_id_one',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'kirki' ),
+			'off' => esc_html__( 'Disable', 'kirki' ),
+		],
+	]
+);
+
+new \Kirki\Field\Text(
+	[
+		'settings' => 'product_text_setting',
+		'label'    => esc_html__( 'Rename Your Arrival Heading', 'kirki' ),
+		'section'  => 'Ecom_section_id_one',
+		'default'  => esc_html__( 'New Arrival', 'kirki' ),
+		'priority' => 10,
+		'active_callback'=>[
+			[
+				'setting'=>'products_switch_setting',
+				'operator'=>'===',
+				'value'=>true,
+			],
+		]
+	]
+);
+
+new \Kirki\Field\Text(
+	[
+		'settings' => 'product_sub_text_setting',
+		'label'    => esc_html__( 'Rename Your Arrival Sub Heading', 'kirki' ),
+		'section'  => 'Ecom_section_id_one',
+		'default'  => esc_html__( '37 New fashion products arrived recently in our showroom for this winter', 'kirki' ),
+		'priority' => 10,
+		'active_callback'=>[
+			[
+				'setting'=>'products_switch_setting',
+				'operator'=>'==',
+				'value'=>true,				
+			]
+		]
+	]
+);
+
+// PROMO
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'promo_switch_setting',
+		'label'       => esc_html__( 'Promo Display Enabler', 'kirki' ),
+		'section'     => 'Ecom_section_id_one',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'kirki' ),
+			'off' => esc_html__( 'Disable', 'kirki' ),
+		],
+	]
+);
+
+// POPULAR PRODUCTS
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'popular_switch_setting',
+		'label'       => esc_html__( 'Popular Products Enabler', 'kirki' ),
+		'section'     => 'Ecom_section_id_one',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'kirki' ),
+			'off' => esc_html__( 'Disable', 'kirki' ),
+		],
+	]
+);
+
+new \Kirki\Field\Text(
+	[
+		'settings' => 'popular_text_setting',
+		'label'    => esc_html__( 'Rename Popular Heading', 'kirki' ),
+		'section'  => 'Ecom_section_id_one',
+		'default'  => esc_html__( 'Popular Products', 'kirki' ),
+		'priority' => 10,
+		'active_callback'=>[
+			[
+				'setting'=>'popular_switch_setting',
+				'operator'=> '==',
+				'value'=> true,
+			]
+		]
+	]
+);
+
+// OFFER
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'offer_switch_setting',
+		'label'       => esc_html__( 'Offer Display Enabler', 'kirki' ),
+		'section'     => 'Ecom_section_id_one',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'kirki' ),
+			'off' => esc_html__( 'Disable', 'kirki' ),
+		],
+	]
+);
+
+// FLICKER
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'flicker_switch_setting',
+		'label'       => esc_html__( 'Flicker Display Enabler', 'kirki' ),
+		'section'     => 'Ecom_section_id_one',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Hide', 'kirki' ),
+			'off' => esc_html__( 'Display', 'kirki' ),
+		],
+	]
+);
+
+new \Kirki\Field\Text(
+	[
+		'settings' => 'flicker_text_setting',
+		'label'    => esc_html__( 'Rename Flicker Heading', 'kirki' ),
+		'section'  => 'Ecom_section_id_one',
+		'default'  => esc_html__( 'Simple Shop On Flicker', 'kirki' ),
+		'priority' => 10,
+		'active_callback'=>[
+			[
+				'setting'=>'flicker_switch_setting',
+				'operator'=> '==',
+				'value'=> true,
+			]
+		]
 	]
 );

@@ -1,11 +1,14 @@
 
     <!--product section start-->
+    <?php 
+        if( get_theme_mod( 'popular_switch_setting' ) ):
+    ?>
     <section class="space-3">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-8">
                     <div class="section-title text-center">
-                        <h2 class="title ">Popular Product</h2>
+                        <h2 class="title "><?php echo get_theme_mod( 'popular_text_setting' ); ?></h2>
                         <!--<div class="sub-title">37 New fashion products arrived recently in our showroom for this-->
                         <!--winter-->
                         <!--</div>-->
@@ -83,4 +86,7 @@
             </div>
         </div>
     </section>
+<?php 
+    endif;
+?>
     <!-- product section end-->

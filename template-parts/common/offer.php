@@ -1,5 +1,9 @@
 
     <!--offer section start-->
+
+    <?php 
+        if( get_theme_mod( 'offer_switch_setting' ) ):
+    ?>
     <section class="space-3 space-adjust">
         <div class="container ">
             <div class="row no-gutters text-center">
@@ -27,4 +31,7 @@
             </div>
         </div>
     </section>
+<?php 
+ endif;
+?>
     <!--offer section end-->

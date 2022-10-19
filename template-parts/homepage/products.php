@@ -1,12 +1,15 @@
  <!--product section start-->
+ <?php 
+  if( get_theme_mod( 'products_switch_setting' ) ):
+ ?>
  <section class="space-3 space-adjust">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-8">
                     <div class="section-title text-center">
-                        <h2 class="title ">New Arrival</h2>
-                        <div class="sub-title">37 New fashion products arrived recently in our showroom for this
-                            winter
+                        <h2 class="title "><?php echo get_theme_mod( 'product_text_setting' ) ?></h2>
+                        <div class="sub-title">
+                            <?php echo get_theme_mod( 'product_sub_text_setting' ); ?>
                         </div>
                     </div>
                 </div>
@@ -236,4 +239,7 @@
             </div>
         </div>
     </section>
+    <?php 
+    endif;
+    ?>
     <!-- product section end-->

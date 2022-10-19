@@ -1,4 +1,6 @@
-
+<?php 
+ if( get_theme_mod( 'promo_switch_setting' ) ):
+?>
     <!--promo section start-->
     <section>
         <div class="container">
@@ -25,4 +27,5 @@
             </div>
         </div>
     </section>
+<?php endif; ?>
     <!--promo section end-->
