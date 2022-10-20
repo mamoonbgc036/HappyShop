@@ -1,13 +1,13 @@
  <!--flickr section start-->
  <?php 
-    if( get_theme_mod( 'flicker_switch_setting' ) ):
+    if( get_theme_mod( 'flicker_switch_setting', 'on' ) == true ):
  ?>
  <section class="">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-8">
                     <div class="section-title text-center">
-                        <h2 class="title "><?php echo get_theme_mod( 'flicker_text_setting' );?></h2>
+                        <h2 class="title "><?php echo get_theme_mod( 'flicker_text_setting', __( 'Simple Shop on Flicker', 'kirki' ) );?></h2>
                     </div>
                 </div>
             </div>

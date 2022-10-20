@@ -2,7 +2,7 @@
     <!--offer section start-->
 
     <?php 
-        if( get_theme_mod( 'offer_switch_setting' ) ):
+        if( get_theme_mod( 'offer_switch_setting', 'on' ) == true ):
     ?>
     <section class="space-3 space-adjust">
         <div class="container ">

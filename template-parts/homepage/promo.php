@@ -1,5 +1,5 @@
 <?php 
- if( get_theme_mod( 'promo_switch_setting' ) ):
+ if( get_theme_mod( 'promo_switch_setting', 'on' ) == true ):
 ?>
     <!--promo section start-->
     <section>

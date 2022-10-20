@@ -42,7 +42,44 @@ new \Kirki\Field\Text(
 		'settings' => 'category_text_setting',
 		'label'    => esc_html__( 'Rename Your Category Heading', 'kirki' ),
 		'section'  => 'Ecom_section_id_one',
-		'default'  => esc_html__( 'Shop By Categories', 'kirki' ),
+		'default'  => esc_html__( 'Shop By Categorie', 'kirki' ),
+		'priority' => 10,
+		'active_callback'=>[
+			[
+				'setting'=>'category_switch_setting',
+				'operator'=> '==',
+				'value'=>true,
+			]
+		]
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'category_prod_num_switch',
+		'label'       => esc_html__( 'Category Number Enable', 'kirki' ),
+		'section'     => 'Ecom_section_id_one',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Hide', 'kirki' ),
+			'off' => esc_html__( 'Show', 'kirki' ),
+		],
+		'active_callback'=>[
+			[
+				'setting'=>'category_switch_setting',
+				'operator'=> '==',
+				'value'=>true,
+			]
+		]
+	]
+);
+
+new \Kirki\Field\Text(
+	[
+		'settings' => 'category_col_num_setting',
+		'label'    => esc_html__( 'Category Column Number', 'kirki' ),
+		'section'  => 'Ecom_section_id_one',
+		'default'  => 3,
 		'priority' => 10,
 		'active_callback'=>[
 			[
