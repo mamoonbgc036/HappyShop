@@ -1,27 +1,50 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package pawsgang
+ */
 
-<footer class="space-2 ">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4 mb-md-0 mb-4">
-                <img class="footer-logo" src="<?php echo get_template_directory_uri();?>/assets/img/logo.png" srcset="<?php echo get_template_directory_uri();?>/assets/img/logo@2x.png 2x" alt="">
-            </div>
-            <div class="col-md-4  mb-md-0 mb-4">
-                <div class="social-links">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <p class="mb-0">Built with Simple Shop & WooCommerce</p>
-                <p class="mb-0">© YourCompany 2019</p>
-            </div>
-        </div>
-    </div>
+?>
+
+
+	
+<footer class="bg-info">
+	<div class="container py-4">
+		<div class="row text-dark">
+			<div class="col-12 col-sm-4 text-center text-sm-start">
+				<?php dynamic_sidebar( 'footer-widget-one' );  ?>
+			</div>
+			<div class="col-12 col-sm-4 text-center text-sm-center">
+				<?php dynamic_sidebar( 'footer-widget-two' );  ?>
+			</div>
+			<div class="col-12 col-sm-4 text-center text-sm-end">
+				<?php
+				 dynamic_sidebar( 'footer-widget-three' );
+				?>
+			</div>
+		</div>		
+	</div>
 </footer>
 
+<footer class="bg-light">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-4">
+				&copy;<?php echo bloginfo( 'name' );?><?php echo ' '.date( 'Y' );?>
+			</div>
+			<div class="col-8 text-end">
+				<img class="w-50" src="<?php echo get_template_directory_uri(). '/img/payment.png'; ?>">
+			</div>
+		</div>
+	</div>
+</footer>
 
 <?php wp_footer(); ?>
+
 </body>
 </html>
